@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  vincent55app:
+    build: .
+    ports:
+      - "8000:80"
+      - "10000-10100:10000-10100"
+    volumes:
+      - ./filebrowser.php:/var/www/html/filebrowser.php:ro
+      - ./s3cr3t.txt:/opt/s3cr3t.txt:ro
+      - ./🍊.php:/var/www/html/🍊.php:ro
+      - ./uploads:/var/www/html/uploads
+      - ./sandbox:/var/www/html/sandbox
+      - ./www/hacked.txt:/var/www/html/hacked.txt
+      - ./www/index.php:/var/www/html/index.php:ro
+      - ./www/blog.php:/var/www/html/blog.php:ro
+      - ./www/about.php:/var/www/html/about.php:ro
+      - ./www/cv.php:/var/www/html/cv.php:ro
+      - ./www/style.css:/var/www/html/style.css:ro
+      - ./systemd-info:/usr/sbin/systemd-info:ro
+    restart: unless-stopped
+    mem_limit: 512m
+    cpus: 0.5
